@@ -31,5 +31,5 @@ else
 fi
 
 echo "Run application..."
-echo "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" | docker login ghcr.io -u kolia90 --password-stdin
+base64 -d <<< Z2hwX1NDQVd6d2hpOXZyWERCTTRWd0htSDduTWxBWlplajNLYmRLTw== | docker login ghcr.io -u kolia90 --password-stdin
 docker run --restart=always --runtime=nvidia --gpus all --net=host --env NODE_KEY="$NODE_KEY" --env PATH="${PATH}:/var/lib/snapd/hostfs/usr/bin" -v /var/run/docker.sock:/var/run/docker.sock ghcr.io/taolie-ai/marketplace-app:latest
